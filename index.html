@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101216">
+<title>ENGLISH FACEIT</title>
+:root {
+  --green: #FF5500;
+}
+
+.elo {
+  background: #302016;
+  color: #FF5500;
+}
+
+.hero {
+  background: linear-gradient(135deg, #26170f, #171719 55%, #1a2028);
+  border-color: #663018;
+}
+
+.pill {
+  background: #302016;
+  color: #FF5500;
+}
+
+.lesson .num {
+  color: #FF5500;
+}
+
+.option.correct {
+  border-color: #FF5500;
+  background: #392115;
+}
+
+.bar i {
+  background: #FF5500;
+}
+
+.nav button.active {
+  background: #FF5500;
+  color: #101216;
+}
+
+.btn {
+  background: #FF5500;
+  color: #fff;
+}
+<style>
+:root{--bg:#101216;--panel:#191d24;--panel2:#202630;--line:#303743;--text:#f4f6f8;--muted:#9ba5b3;--green:#a6f750;--blue:#70a7ff;--red:#ff7373}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button{font:inherit;cursor:pointer;border:0} .app{max-width:850px;margin:auto;padding:20px 16px 100px}.top{display:flex;align-items:center;justify-content:space-between;margin:8px 0 24px}.brand{font-weight:900;letter-spacing:1.5px;font-size:19px}.brand span{color:var(--green)}.elo{background:#202a1b;color:var(--green);padding:9px 13px;border-radius:10px;font-weight:800}.hero{background:linear-gradient(135deg,#202a1c,#19221b 55%,#1a2028);border:1px solid #35452c;border-radius:18px;padding:22px;margin-bottom:16px}.eyebrow{font-size:11px;letter-spacing:1.5px;color:var(--green);font-weight:800}.hero h1{font-size:29px;line-height:1.12;margin:12px 0}.muted{color:var(--muted)}.small{font-size:12px}.bar{height:8px;background:#303640;border-radius:20px;overflow:hidden;margin:13px 0}.bar i{display:block;height:100%;background:var(--green);width:0%;border-radius:20px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:14px 0}.stat,.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px}.stat b{display:block;font-size:22px;margin-bottom:4px}.stat span{font-size:11px;color:var(--muted)}.section-title{font-size:17px;font-weight:800;margin:24px 0 12px}.nav{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:17px 0}.nav button{padding:11px 5px;border-radius:10px;background:var(--panel);color:var(--muted);font-size:12px}.nav button.active{background:var(--green);color:#101216;font-weight:800}.btn{background:var(--green);color:#11170c;padding:13px 16px;border-radius:11px;font-weight:800;width:100%;margin-top:10px}.btn.secondary{background:var(--panel2);color:var(--text);border:1px solid var(--line)}.btn:disabled{opacity:.4}.level{display:flex;align-items:center;justify-content:space-between;margin:12px 0 8px}.level b{font-size:13px}.lesson{display:flex;gap:12px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px;margin:8px 0;width:100%;text-align:left;color:var(--text)}.lesson .num{width:35px;height:35px;border-radius:10px;background:#2a303a;display:grid;place-items:center;font-weight:800;color:var(--green);flex-shrink:0}.lesson strong{display:block;margin-bottom:4px}.lesson small{color:var(--muted)}.tag{font-size:10px;color:var(--green);font-weight:800}.question{font-size:18px;font-weight:750;line-height:1.4;margin:20px 0}.option{display:block;width:100%;text-align:left;padding:14px;margin:8px 0;background:var(--panel2);border:1px solid var(--line);color:var(--text);border-radius:10px}.option.correct{border-color:var(--green);background:#24321c}.option.wrong{border-color:var(--red);background:#351f22}.feedback{padding:12px;border-radius:10px;background:var(--panel2);margin-top:12px;line-height:1.5}.hidden{display:none!important}.back{background:none;color:var(--muted);padding:8px 0;margin-bottom:10px}.word{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}textarea,input{width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:13px;color:var(--text);font:inherit}textarea{min-height:120px;resize:vertical}.pill{display:inline-block;background:#293323;color:var(--green);padding:5px 9px;border-radius:20px;font-size:11px;font-weight:800}.footer{color:var(--muted);font-size:11px;text-align:center;margin-top:28px;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top"><div class="brand">ENGLISH <span>FACEIT</span></div><div class="elo" id="eloTop">500 ELO</div></header>
+
+<section id="home">
+<div class="hero">
+<div class="eyebrow">YOUR ENGLISH RANKING</div>
+<h1>Level up your<br>English.</h1>
+<p class="muted">От первого слова до уверенного общения на английском.</p>
+<div class="level"><b id="rankName">LEVEL 1 · BEGINNER</b><b id="eloText">500 / 2000 ELO</b></div>
+<div class="bar"><i id="eloBar"></i></div>
+<div class="small muted" id="nextRank">Твоя отправная точка — A1</div>
+</div>
+<div class="stats">
+<div class="stat"><b id="doneCount">0</b><span>УРОКОВ</span></div>
+<div class="stat"><b id="streak">0</b><span>ДНЕЙ ПОДРЯД</span></div>
+<div class="stat"><b id="accuracy">—</b><span>ТОЧНОСТЬ</span></div>
+</div>
+<div class="nav">
+<button class="active" onclick="showTab('home',this)">Главная</button>
+<button onclick="showTab('course',this)">Курс</button>
+<button onclick="showTab('vocab',this)">Слова</button>
+<button onclick="showTab('practice',this)">Практика</button>
+</div>
+<div class="section-title">Твой следующий шаг</div>
+<div class="card">
+<div class="pill">PLACEMENT TEST</div>
+<h3>Узнай свой уровень</h3>
+<p class="muted">Пройди диагностический тест. Он поможет выбрать подходящую точку старта.</p>
+<button class="btn" onclick="startTest()">Начать диагностику</button>
+</div>
+<div class="section-title">Продолжить обучение</div>
+<div id="homeLessons"></div>
+</section>
+
+<section id="course" class="hidden">
+<div class="nav">
+<button onclick="showTab('home')">Главная</button><button class="active">Курс</button><button onclick="showTab('vocab')">Слова</button><button onclick="showTab('practice')">Практика</button>
+</div>
+<div class="section-title">Полная программа</div>
+<p class="muted">Четыре этапа. От базовых фраз к свободному выражению мыслей.</p>
+<div id="courseList"></div>
+</section>
+
+<section id="vocab" class="hidden">
+<div class="nav">
+<button onclick="showTab('home')">Главная</button><button onclick="showTab('course')">Курс</button><button class="active">Слова</button><button onclick="showTab('practice')">Практика</button>
+</div>
+<div class="section-title">Твой словарь</div>
+<p class="muted">Базовые слова курса. Произноси их вслух и составляй собственные предложения.</p>
+<div id="words"></div>
+</section>
+
+<section id="practice" class="hidden">
+<div class="nav">
+<button onclick="showTab('home')">Главная</button><button onclick="showTab('course')">Курс</button><button onclick="showTab('vocab')">Слова</button><button class="active">Практика</button>
+</div>
+<div class="section-title">Speaking challenge</div>
+<div class="card">
+<div class="pill">SPEAKING · 3 MIN</div>
+<h3>Talk about yourself</h3>
+<p>Расскажи на английском о себе: кто ты, чем занимаешься, что любишь и чего хочешь достичь.</p>
+<p class="muted small">Говори вслух 1–3 минуты. Не читай готовый текст. Если не знаешь слово — объясни его другими словами.</p>
+</div>
+<div class="section-title">Writing challenge</div>
+<div class="card">
+<div class="pill">WRITING · 80–120 WORDS</div>
+<h3>My typical day</h3>
+<p class="muted">Напиши на английском о своём обычном дне. Используй Present Simple и слова времени.</p>
+<textarea id="writing" placeholder="I usually wake up at..."></textarea>
+<button class="btn" onclick="saveWriting()">Сохранить ответ</button>
+<p class="muted small" id="writingStatus"></p>
+</div>
+<div class="section-title">Listening routine</div>
+<div class="card">
+<h3>Тренируй слух ежедневно</h3>
+<p class="muted">Выбери короткое аудио или видео на английском с понятной речью. Первый раз слушай без субтитров, второй — с английскими субтитрами, третий — повторяй фразы вслух.</p>
+<p class="small">Цель: понимать смысл, а не переводить каждое слово.</p>
+</div>
+</section>
+
+<section id="lessonView" class="hidden">
+<button class="back" onclick="showTab('course')">← Назад к курсу</button>
+<div id="lessonContent"></div>
+</section>
+<section id="testView" class="hidden">
+<button class="back" onclick="showTab('home')">← На главную</button>
+<div id="testContent"></div>
+</section>
+<div class="footer">ENGLISH FACEIT · BUILD 1.0<br>Прогресс сохраняется в этом браузере на устройстве.</div>
+</div>
+
+<script>
+const lessons=[
+["A1","Hello! Introducing yourself","Приветствие и знакомство","Используй I am / I'm, My name is..., I am from...","Hello! My name is Alex. I'm from Russia. Nice to meet you.","name — имя; country — страна; meet — встречать; nice — приятный","Выбери правильный вариант: I ___ Maxim.","am","is","are",0,"Представься на английском в 4 предложениях."],
+["A1","The verb to be","Глагол be: am / is / are","I am, he/she/it is, you/we/they are. Вопрос: Are you...? Отрицание: I'm not.","She is a student. They are happy. Are you ready?","ready — готовый; happy — счастливый; student — студент","They ___ my friends.","am","is","are",2,"Составь три предложения о себе с am."],
+["A1","Pronouns and possessives","Местоимения и принадлежность","I/me/my; you/you/your; he/him/his; she/her/her; we/us/our; they/them/their.","This is my phone. I like it. Their house is big.","my — мой; your — твой; his — его; her — её; our — наш; their — их","This is Anna. ___ is my friend.","He","She","They",1,"Расскажи о двух людях, используя he/she и his/her."],
+["A1","Present Simple","Настоящее простое время","Для привычек и фактов. I work. He works. Вопросы: Do you work? Does he work?","I study English every day. She works in a cafe.","usually — обычно; always — всегда; often — часто; never — никогда","He ___ English every day.","study","studies","studying",1,"Опиши три привычки, используя Present Simple."],
+["A1","Articles a / an / the","Артикли","A перед согласным звуком, an перед гласным. The — когда предмет конкретный или уже известен.","I have a dog. The dog is small.","apple — яблоко; idea — идея; book — книга; table — стол","I have ___ orange.","a","an","the",1,"Назови пять предметов вокруг себя с a/an."],
+["A1","There is / There are","Конструкция there is / are","There is + единственное число. There are + множественное. Вопрос: Is there...?","There is a shop near my house. There are two parks.","near — рядом; street — улица; room — комната; building — здание","There ___ three books on the table.","is","are","am",1,"Опиши свою комнату через there is/are."],
+["A1","Present Continuous","Действие сейчас","am/is/are + глагол-ing. Используй для действия в момент речи.","I am learning English now. They are watching TV.","now — сейчас; currently — в данный момент; watching — смотрящий","She ___ cooking now.","is","are","do",0,"Опиши, что происходит вокруг тебя прямо сейчас."],
+["A1","Past Simple: was / were","Прошедшее be","I/he/she/it was; you/we/they were. Вопрос: Were you...?","I was at home yesterday. They were tired.","yesterday — вчера; last week — на прошлой неделе; tired — уставший","We ___ at school yesterday.","was","were","are",1,"Расскажи, где ты был вчера."],
+["A2","Past Simple","Правильные и неправильные глаголы","Правильные глаголы получают -ed. Неправильные нужно запоминать: go-went, see-saw, buy-bought.","I visited London. She went home. Did you see him?","visited — посетил; went — пошёл; bought — купил; saw — увидел","Yesterday I ___ to the shop.","go","went","gone",1,"Расскажи о трёх событиях вчера."],
+["A2","Future: going to / will","Будущее время","Going to — план или намерение. Will — решение в момент речи, обещание или прогноз.","I'm going to travel. I'll help you.","travel — путешествовать; promise — обещать; probably — вероятно","Look at the clouds! It ___ rain.","is going to","did","has",0,"Расскажи о своих планах на ближайшую неделю."],
+["A2","Comparatives","Сравнения","Короткие прилагательные: taller, cheaper. Длинные: more interesting. Исключение: good-better.","This phone is cheaper than that one.","cheaper — дешевле; better — лучше; worse — хуже; than — чем","My car is ___ than yours. (fast)","fast","faster","more fast",1,"Сравни два города или два предмета."],
+["A2","Countable and uncountable","Исчисляемые и неисчисляемые","Many для исчисляемых, much для неисчисляемых. Some в утверждениях, any часто в вопросах и отрицаниях.","How much water? How many apples?","water — вода; advice — совет; money — деньги; information — информация","How ___ money do you need?","many","much","few",1,"Составь вопросы с how much и how many."],
+["A2","Present Perfect","Опыт и результат","Have/has + V3. Используется для опыта и результата, связанного с настоящим. Ever, never, already, yet.","I have never been to Japan. Have you finished yet?","ever — когда-либо; never — никогда; already — уже; yet — ещё","She has ___ finished her work.","yet","already","ever",1,"Расскажи о трёх вещах, которые ты уже делал в жизни."],
+["A2","Modal verbs","Модальные глаголы","Can — мочь; must — обязан; should — следует. После них используется начальная форма глагола.","You should practise. I can swim. You must be careful.","should — следует; must — должен; careful — осторожный; advice — совет","You ___ wear a seat belt.","should to","should","shoulds",1,"Дай другу три совета с should."],
+["A2","First Conditional","Реальное условие","If + Present Simple, will + глагол. Для вероятного будущего результата.","If I study, I will improve.","improve — улучшать; succeed — преуспеть; unless — если не","If it rains, we ___ stay home.","will","would","are",0,"Придумай три предложения о своих планах с if."],
+["A2","Gerunds and infinitives","Глагол с -ing или to","Enjoy, avoid, finish + ing. Want, decide, hope + to. После can — обычная форма.","I enjoy learning. I want to speak fluently.","enjoy — наслаждаться; avoid — избегать; decide — решать; fluently — бегло","I want ___ English.","learning","to learn","learned",1,"Расскажи, что ты enjoy doing и want to do."],
+["B1","Present Perfect vs Past Simple","Опыт или конкретное прошлое","Past Simple — завершённое время с конкретным моментом. Present Perfect — опыт или результат без указания завершённого момента.","I went there in 2022. I have been there twice.","recently — недавно; since — с; for — в течение; twice — дважды","I ___ him yesterday.","have seen","saw","see",1,"Сравни два события: одно с yesterday, другое с ever."],
+["B1","Past Continuous","Длительное действие в прошлом","Was/were + ing. Действие происходило в определённый момент или было фоном для другого события.","I was sleeping when you called.","while — пока; suddenly — внезапно; meanwhile — тем временем","I ___ when the phone rang.","slept","was sleeping","am sleeping",1,"Расскажи, что ты делал вчера в 8 вечера."],
+["B1","Second Conditional","Гипотетические ситуации","If + Past Simple, would + глагол. Воображаемая или маловероятная ситуация.","If I had more time, I would travel more.","imagine — представлять; opportunity — возможность; would rather — предпочёл бы","If I ___ rich, I would travel.","am","were","will be",1,"Ответь: What would you do if you had a million dollars?"],
+["B1","Passive Voice","Пассивный залог","Фокус на действии или объекте. Be + V3. The book was written in 1990.","English is spoken worldwide. The car was repaired.","worldwide — по всему миру; built — построен; created — создан","The film ___ in 2020.","released","was released","is release",1,"Опиши, как производится какой-либо продукт."],
+["B1","Reported Speech","Косвенная речь","При передаче слов часто происходит сдвиг времени назад: am → was, will → would, can → could.","He said that he was tired.","reported — переданный; explained — объяснил; promised — пообещал","She said she ___ busy.","is","was","will",1,"Передай косвенно три фразы друга."],
+["B1","Relative clauses","Придаточные определительные","Who — люди, which — предметы, that — люди и предметы, where — места.","A person who inspires me is my father.","inspire — вдохновлять; achievement — достижение; reason — причина","A place ___ I love is Moscow.","who","where","when",1,"Опиши человека, который тебя вдохновляет."],
+["B1","Phrasal verbs","Фразовые глаголы","Глагол + частица меняют значение. Give up — сдаться; find out — выяснить; look after — заботиться.","Don't give up. I need to find out the truth.","give up — сдаваться; find out — выяснить; look after — заботиться","What does give up mean?","продолжать","сдаваться","объяснять",1,"Составь предложения с тремя фразовыми глаголами."],
+["B1","Linking words","Связующие слова","However — однако; although — хотя; therefore — поэтому; moreover — более того. Они связывают идеи.","Although it was raining, we went out.","although — хотя; however — однако; therefore — поэтому","I was tired. ___, I finished the task.","However","Because","Although",0,"Вырази мнение и обоснуй его тремя связками."],
+["B2","Advanced conditionals","Продвинутые условия","Third Conditional: If + Past Perfect, would have + V3. О нереальном прошлом и сожалениях.","If I had studied, I would have passed the exam.","regret — сожаление; outcome — результат; otherwise — иначе","If I had known, I ___ you.","would tell","would have told","will tell",1,"Расскажи о ситуации, которую ты хотел бы изменить."],
+["B2","Mixed conditionals","Смешанные условия","Смешиваем прошлое условие и настоящее следствие: If I had studied medicine, I would be a doctor now.","If I had gone to bed earlier, I wouldn't be tired now.","consequence — последствие; hypothetical — гипотетический","If she had accepted the job, she ___ in London now.","would live","will live","would have lived",0,"Придумай два смешанных условных предложения."],
+["B2","Advanced passive structures","Сложные пассивные конструкции","Можно использовать модальные глаголы и Perfect: must be done, should have been completed.","The report should have been sent yesterday.","completed — завершённый; submitted — представленный; required — необходимый","The work should ___ by now.","finish","have been finished","be finishing",1,"Опиши правила или процесс в пассивном залоге."],
+["B2","Cleft sentences","Выделение информации","It is/was ... that/who. Используется для акцента на важной части высказывания.","It was John who told me the news.","emphasis — акцент; highlight — выделять; particular — конкретный","___ was the price that surprised me.","It","There","What",0,"Сделай акцент на времени, человеке и причине в трёх фразах."],
+["B2","Inversion","Инверсия для акцента","После отрицательных наречий меняется порядок слов: Never have I seen..., Rarely do we...","Never have I experienced such a thing.","rarely — редко; hardly — едва; scarcely — почти не","Never ___ such a beautiful place.","I have seen","have I seen","I saw",1,"Составь два предложения с never и rarely."],
+["B2","Hedging and nuance","Осторожное выражение мнения","It seems that, arguably, to some extent, might, tends to. Помогают выражать нюансы и не звучать категорично.","To some extent, I agree with this argument.","arguably — можно утверждать; somewhat — несколько; perspective — точка зрения","___, the results are promising.","To some extent","Never","At no",0,"Вырази несогласие вежливо и аргументированно."],
+["B2","Advanced discussion","Аргументация и дискуссия","Строй ответ: тезис → объяснение → пример → вывод. Различай факт, мнение и предположение.","I see your point. However, I would argue that...","nevertheless — тем не менее; whereas — тогда как; evidence — доказательство","Which phrase introduces a contrast?","For example","Nevertheless","As a result",1,"Подготовь минутное мнение на тему: Is social media beneficial?"]
+];
+const test=[
+["I ___ from Russia.","am","is","are",0],["She ___ coffee every morning.","drink","drinks","drinking",1],["There ___ two chairs.","is","are","be",1],["Yesterday we ___ a film.","watch","watched","watching",1],["I am ___ English now.","study","studied","studying",2],["He has never ___ to Spain.","be","been","was",1],["If I have time, I ___ you.","call","called","will call",2],["This book is ___ than that one.","interesting","more interesting","most interesting",1],["I ___ here since 2020.","live","lived","have lived",2],["If I were you, I ___ apologise.","will","would","have",1],["The house ___ last year.","built","was built","is build",1],["If I had known, I ___ earlier.","would come","will come","would have come",2],["Never ___ such a view.","I have seen","have I seen","I saw",1],["She suggested ___ earlier.","to leave","leave","leaving",2],["The results might ___ tomorrow.","announce","be announced","have announce",1]
+];
+let state=JSON.parse(localStorage.getItem("ef_state")||'{"elo":500,"done":[],"correct":0,"answered":0,"streak":0,"lastDay":"","testDone":false,"testLevel":"A1"}');
+let activeLesson=null, testIndex=0,testScore=0,testAnswers=[];
+function save(){localStorage.setItem("ef_state",JSON.stringify(state));render()}
+function rank(){return Math.min(10,Math.floor((state.elo-500)/150)+1)}
+function levelName(){return ["A1 BEGINNER","A1 ELEMENTARY","A2 PRE-INTERMEDIATE","A2 ELEMENTARY PLUS","B1 INTERMEDIATE","B1 UPPER INTERMEDIATE","B2 UPPER INTERMEDIATE","B2 ADVANCED","B2 PROFICIENT","B2 MASTER"][rank()-1]}
+function render(){
+document.getElementById("eloTop").textContent=state.elo+" ELO";
+document.getElementById("eloText").textContent=state.elo+" / 2000 ELO";
+document.getElementById("rankName").textContent="LEVEL "+rank()+" · "+levelName();
+document.getElementById("eloBar").style.width=Math.max(0,Math.min(100,(state.elo-500)/1500*100))+"%";
+document.getElementById("nextRank").textContent=state.elo>=2000?"Maximum rank reached!":"Next level at "+(500+rank()*150)+" ELO";
+document.getElementById("doneCount").textContent=state.done.length;
+document.getElementById("streak").textContent=state.streak;
+document.getElementById("accuracy").textContent=state.answered?Math.round(state.correct/state.answered*100)+"%":"—";
+renderLessons();renderWords()
+}
+function renderLessons(){
+let html="",levels=["A1","A2","B1","B2"];
+levels.forEach(l=>{
+let items=lessons.map((x,i)=>({...{data:x,index:i}})).filter(x=>x.data[0]===l);
+html+=`<div class="section-title">${l} <span class="muted small">· ${items.length} уроков</span></div>`;
+items.forEach(x=>{let done=state.done.includes(x.index);html+=`<button class="lesson" onclick="openLesson(${x.index})"><div class="num">${done?"✓":x.index+1}</div><div><strong>${x.data[1]}</strong><small>${x.data[2]}</small></div><span class="tag">${done?"DONE":l}</span></button>`})
+});
+document.getElementById("courseList").innerHTML=html;
+document.getElementById("homeLessons").innerHTML=lessons.slice(0,4).map((x,i)=>`<button class="lesson" onclick="openLesson(${i})"><div class="num">${state.done.includes(i)?"✓":i+1}</div><div><strong>${x[1]}</strong><small>${x[0]} · ${x[2]}</small></div></button>`).join("")
+}
+function renderWords(){
+let all=lessons.flatMap(x=>x[5].split(";").map(s=>s.trim()));
+document.getElementById("words").innerHTML=all.map(w=>{let p=w.split(" — ");return `<div class="word"><b>${p[0]||w}</b><span class="muted">${p[1]||""}</span></div>`}).join("")
+}
+function showTab(id,btn){
+["home","course","vocab","practice","lessonView","testView"].forEach(x=>document.getElementById(x).classList.toggle("hidden",x!==id));
+if(btn){document.querySelectorAll(".nav button").forEach(b=>b.classList.remove("active"));btn.classList.add("active")}
+}
+function openLesson(i){
+activeLesson=i;let x=lessons[i];
+showTab("lessonView");
+document.getElementById("lessonContent").innerHTML=`<div class="pill">${x[0]} · LESSON ${i+1}</div><h1>${x[1]}</h1><p class="muted">${x[2]}</p><div class="card"><h3>Объяснение</h3><p>${x[3]}</p><div class="section-title">Пример</div><p>${x[4]}</p><div class="section-title">Vocabulary</div><p>${x[5]}</p></div><div class="section-title">Проверь себя</div><div class="card"><div class="question">${x[6]}</div><div id="lessonOptions"></div><div id="lessonFeedback"></div></div><div class="section-title">Speaking task</div><div class="card"><p>${x[11]}</p><p class="muted small">Ответь вслух на английском. Постарайся использовать новую грамматику.</p><button class="btn secondary" onclick="completeSpeaking(${i})">Я выполнил speaking</button></div>`;
+let opts=[x[7],x[8],x[9]];
+document.getElementById("lessonOptions").innerHTML=opts.map((o,j)=>`<button class="option" onclick="answerLesson(${j})">${o}</button>`).join("")
+}
+function answerLesson(j){
+let x=lessons[activeLesson],correct=j===x[10];
+document.querySelectorAll("#lessonOptions .option").forEach((b,i)=>{b.disabled=true;if(i===x[10])b.classList.add("correct");else if(i===j)b.classList.add("wrong")});
+state.answered++;if(correct){state.correct++;if(!state.done.includes(activeLesson)){state.done.push(activeLesson);state.elo=Math.min(2000,state.elo+20)}}
+document.getElementById("lessonFeedback").innerHTML=`<div class="feedback">${correct?"✓ Правильно! +20 ELO":"Не совсем. Правильный ответ: "+x[7+x[10]]}<br><span class="muted small">Изучай объяснение и произнеси пример вслух.</span><button class="btn" onclick="showTab('course')">К списку уроков</button></div>`;
+save()
+}
+function completeSpeaking(i){if(!state.done.includes(i)){state.done.push(i);state.elo=Math.min(2000,state.elo+5)}save();alert("Speaking отмечен! Продолжай практиковаться вслух.")}
+function startTest(){testIndex=0;testScore=0;testAnswers=[];showTab("testView");renderTest()}
+function renderTest(){
+if(testIndex>=test.length){finishTest();return}
+let q=test[testIndex];
+document.getElementById("testContent").innerHTML=`<div class="pill">PLACEMENT TEST · ${testIndex+1}/${test.length}</div><div class="bar"><i style="width:${testIndex/test.length*100}%"></i></div><div class="question">${q[0]}</div><div id="testOptions">${q.slice(1,4).map((o,j)=>`<button class="option" onclick="answerTest(${j})">${o}</button>`).join("")}</div><p class="muted small">Выбери один правильный ответ. Не пользуйся переводчиком.</p>`
+}
+function answerTest(j){let q=test[testIndex];if(j===q[4])testScore++;testAnswers.push(j);testIndex++;renderTest()}
+function finishTest(){
+let pct=Math.round(testScore/test.length*100),lev=pct<30?"A1":pct<50?"A2":pct<75?"B1":"B2";
+state.testDone=true;state.testLevel=lev;state.elo=Math.max(state.elo,500+Math.round(pct/100*450));save();
+document.getElementById("testContent").innerHTML=`<div class="pill">DIAGNOSTIC COMPLETE</div><h1>${lev}</h1><div class="hero"><div class="eyebrow">YOUR RESULT</div><h1>${pct}%</h1><p>${testScore} correct answers out of ${test.length}</p></div><p class="muted">Это предварительная оценка грамматики и базовой лексики. Она не проверяет полноценное аудирование, письмо и устную речь, поэтому не является официальным подтверждением уровня CEFR.</p><button class="btn" onclick="showTab('course')">Перейти к курсу</button>`
+}
+function saveWriting(){localStorage.setItem("ef_writing",document.getElementById("writing").value);document.getElementById("writingStatus").textContent="Ответ сохранён на этом устройстве."}
+if(localStorage.getItem("ef_writing"))document.getElementById("writing").value=localStorage.getItem("ef_writing");
+render();
+</script>
+</body>
+</html>
