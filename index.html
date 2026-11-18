@@ -49,18 +49,89 @@
 .btn {
   background: #FF5500;
   color: #fff;
-}</style>
+}
+
+/* ROUND FACEIT RANK BADGES */
+
+.elo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.rank-badge {
+  display: block;
+  flex-shrink: 0;
+  aspect-ratio: 1;
+}
+
+.rank-badge svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.rank-badge.small {
+  width: 43px;
+  height: 43px;
+}
+
+.rank-badge.large {
+  width: 104px;
+  height: 104px;
+}
+
+.rank-display {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 18px 0 10px;
+}
+
+.rank-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rank-info strong {
+  font-size: 15px;
+}
+
+.rank-info span {
+  color: var(--muted);
+  font-size: 13px;
+}
+</style>
 </head>
 <body>
 <div class="app">
-<header class="top"><div class="brand">ENGLISH <span>FACEIT</span></div><div class="elo" id="eloTop">500 ELO</div></header>
+<header class="top">
+  <div class="brand">ENGLISH <span>FACEIT</span></div>
+  <div class="elo-wrap">
+    <div id="topBadge" class="rank-badge small"></div>
+    <div class="elo" id="eloTop">500 ELO</div>
+  </div>
+</header>
 
 <section id="home">
 <div class="hero">
 <div class="eyebrow">YOUR ENGLISH RANKING</div>
 <h1>Level up your<br>English.</h1>
 <p class="muted">От первого слова до уверенного общения на английском.</p>
-<div class="level"><b id="rankName">LEVEL 1 · BEGINNER</b><b id="eloText">500 / 2000 ELO</b></div>
+<div class="rank-display">
+  <div id="heroBadge" class="rank-badge large"></div>
+  <div class="rank-info">
+    <strong id="rankName">LEVEL 1 · BEGINNER</strong>
+    <span id="eloText">500 ELO</span>
+  </div>
+</div>
+
+<div class="level">
+  <b>Прогресс ранга</b>
+  <b id="rankProgressText">0%</b>
+</div>
+
 <div class="bar"><i id="eloBar"></i></div>
 <div class="small muted" id="nextRank">Твоя отправная точка — A1</div>
 </div>
@@ -181,20 +252,136 @@ const test=[
 ["I ___ from Russia.","am","is","are",0],["She ___ coffee every morning.","drink","drinks","drinking",1],["There ___ two chairs.","is","are","be",1],["Yesterday we ___ a film.","watch","watched","watching",1],["I am ___ English now.","study","studied","studying",2],["He has never ___ to Spain.","be","been","was",1],["If I have time, I ___ you.","call","called","will call",2],["This book is ___ than that one.","interesting","more interesting","most interesting",1],["I ___ here since 2020.","live","lived","have lived",2],["If I were you, I ___ apologise.","will","would","have",1],["The house ___ last year.","built","was built","is build",1],["If I had known, I ___ earlier.","would come","will come","would have come",2],["Never ___ such a view.","I have seen","have I seen","I saw",1],["She suggested ___ earlier.","to leave","leave","leaving",2],["The results might ___ tomorrow.","announce","be announced","have announce",1]
 ];
 let state=JSON.parse(localStorage.getItem("ef_state")||'{"elo":500,"done":[],"correct":0,"answered":0,"streak":0,"lastDay":"","testDone":false,"testLevel":"A1"}');
-let activeLesson=null, testIndex=0,testScore=0,testAnswers=[];
+let activeLesson=null, testIndex=0,testScore=0,testAnswers=[]; 
+  function getRankColor() {
+  const progress = Math.max(0, Math.min(1, (state.elo - 500) / 1500));
+
+  const colors = [
+    [57, 214, 107],  // green
+    [255, 205, 55],  // yellow
+    [255, 135, 35],  // orange
+    [255, 55, 55]    // red
+  ];
+
+  const position = progress * (colors.length - 1);
+  const index = Math.min(2, Math.floor(position));
+  const mix = position - index;
+
+  const a = colors[index];
+  const b = colors[index + 1];
+
+  const rgb = a.map((v, i) => Math.round(v + (b[i] - v) * mix));
+
+  return `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`;
+}
+
+function getRankProgress() {
+  const currentRank = rank();
+  const start = 500 + (currentRank - 1) * 150;
+  const end = currentRank === 10 ? 2000 : start + 150;
+
+  return Math.max(0, Math.min(100,
+    ((state.elo - start) / (end - start)) * 100
+  ));
+}
+
+function getRankBadge() {
+  const color = getRankColor();
+  const progress = getRankProgress();
+  const number = rank();
+
+  const coloredArc = progress > 0
+    ? `<path
+        d="M 14 60 C 14 85.4 34.6 106 60 106 C 85.4 106 106 85.4 106 60"
+        fill="none"
+        stroke="${color}"
+        stroke-width="10"
+        stroke-linecap="round"
+        pathLength="100"
+        stroke-dasharray="${progress} 100"
+        stroke-dashoffset="0"
+      />`
+    : "";
+
+  return `
+    <svg viewBox="0 0 120 120"
+         xmlns="http://www.w3.org/2000/svg"
+         preserveAspectRatio="xMidYMid meet">
+
+      <circle
+        cx="60"
+        cy="60"
+        r="53"
+        fill="#242831"
+        stroke="#414752"
+        stroke-width="2"
+      />
+
+      <path
+        d="M 14 60 C 14 85.4 34.6 106 60 106 C 85.4 106 106 85.4 106 60"
+        fill="none"
+        stroke="#4b515d"
+        stroke-width="10"
+        stroke-linecap="round"
+      />
+
+      ${coloredArc}
+
+      <text
+        x="60"
+        y="60"
+        text-anchor="middle"
+        dominant-baseline="central"
+        font-size="39"
+        font-weight="800"
+        fill="#ffffff"
+      >${number}</text>
+    </svg>
+  `;
+}
 function save(){localStorage.setItem("ef_state",JSON.stringify(state));render()}
 function rank(){return Math.min(10,Math.floor((state.elo-500)/150)+1)}
 function levelName(){return ["A1 BEGINNER","A1 ELEMENTARY","A2 PRE-INTERMEDIATE","A2 ELEMENTARY PLUS","B1 INTERMEDIATE","B1 UPPER INTERMEDIATE","B2 UPPER INTERMEDIATE","B2 ADVANCED","B2 PROFICIENT","B2 MASTER"][rank()-1]}
-function render(){
-document.getElementById("eloTop").textContent=state.elo+" ELO";
-document.getElementById("eloText").textContent=state.elo+" / 2000 ELO";
-document.getElementById("rankName").textContent="LEVEL "+rank()+" · "+levelName();
-document.getElementById("eloBar").style.width=Math.max(0,Math.min(100,(state.elo-500)/1500*100))+"%";
-document.getElementById("nextRank").textContent=state.elo>=2000?"Maximum rank reached!":"Next level at "+(500+rank()*150)+" ELO";
-document.getElementById("doneCount").textContent=state.done.length;
-document.getElementById("streak").textContent=state.streak;
-document.getElementById("accuracy").textContent=state.answered?Math.round(state.correct/state.answered*100)+"%":"—";
-renderLessons();renderWords()
+function render() {
+  document.getElementById("eloTop").textContent =
+    state.elo + " ELO";
+
+  document.getElementById("eloText").textContent =
+    state.elo + " ELO";
+
+  document.getElementById("rankName").textContent =
+    "LEVEL " + rank() + " · " + levelName();
+
+  document.getElementById("topBadge").innerHTML =
+    getRankBadge();
+
+  document.getElementById("heroBadge").innerHTML =
+    getRankBadge();
+
+  document.getElementById("eloBar").style.width =
+    getRankProgress() + "%";
+
+  document.getElementById("rankProgressText").textContent =
+    Math.round(getRankProgress()) + "%";
+
+  document.getElementById("nextRank").textContent =
+    state.elo >= 2000
+      ? "Maximum rank reached!"
+      : "Next level at " + (500 + rank() * 150) + " ELO";
+
+  document.getElementById("doneCount").textContent =
+    state.done.length;
+
+  document.getElementById("streak").textContent =
+    state.streak;
+
+  document.getElementById("accuracy").textContent =
+    state.answered
+      ? Math.round(state.correct / state.answered * 100) + "%"
+      : "—";
+
+  renderLessons();
+  renderWords();
 }
 function renderLessons(){
 let html="",levels=["A1","A2","B1","B2"];
